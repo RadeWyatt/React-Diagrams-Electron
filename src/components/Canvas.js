@@ -8,9 +8,7 @@ import { CanvasWidget } from '@projectstorm/react-canvas-core';
 export default class Canvas extends React.Component {
     constructor (props) {
         super (props);
-        this.state = {
 
-        }
         this.engine = createEngine();
         this.model = this.generateNewModel();
 
@@ -32,7 +30,6 @@ export default class Canvas extends React.Component {
         newModel.registerListener({
             offsetUpdated: (e) => this.handleOffsetUpdate(e),
             zoomUpdated: (e) => this.handleZoomUpdate(e),
-
         })
         return newModel;
     }
@@ -46,7 +43,10 @@ export default class Canvas extends React.Component {
     }
 
     handleZoomUpdate = (e) => {
-
+        let gridSize = this.model.options.gridSize;
+        let zoomLevel = this.model.getZoomLevel();
+        let container = document.getElementById("dcontainer");
+        container.style.setProperty('--grid-size', `${(gridSize * zoomLevel) / 100}px`)
     }
 
     render = () => {
