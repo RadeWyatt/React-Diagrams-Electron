@@ -10,6 +10,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "closest": "^0.0.1",
+    "cross-env": "^7.0.2",
     "dagre": "^0.8.5",
     "lodash": "^4.17.19",
     "ml-matrix": "^6.5.0",
@@ -22,7 +23,7 @@
   },
   "main": "src/electron-starter.js",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
